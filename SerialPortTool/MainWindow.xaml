@@ -1,0 +1,90 @@
+﻿<Window x:Class="SerialPortTool.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"        
+        mc:Ignorable="d"
+        Title="串口调试助手"
+        Height="300"
+        Width="820" 
+        Icon="串口.png"
+        ResizeMode="CanMinimize" 
+        WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded">
+    
+    <Grid>
+        <GroupBox x:Name="groupBox" Header="串口设置" HorizontalAlignment="Left" Margin="15,10,0,0" VerticalAlignment="Top" Height="142" Width="338">
+            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <TextBlock HorizontalAlignment="Left" Margin="16,10,0,0" TextWrapping="Wrap" Text="接受端口：" VerticalAlignment="Top"/>
+                <TextBlock HorizontalAlignment="Left" Margin="16,47,0,0" TextWrapping="Wrap" Text="数 据 位：" VerticalAlignment="Top"/>
+                <TextBlock  HorizontalAlignment="Left" Margin="16,82,0,0" TextWrapping="Wrap" Text="奇偶校验：" VerticalAlignment="Top"/>
+                <ComboBox x:Name="cmbReceivePort" HorizontalAlignment="Left" Margin="78,9,0,0" VerticalAlignment="Top" Width="80"/>
+                <ComboBox x:Name="cmbDataBits"
+                          SelectedIndex="0"
+                          HorizontalAlignment="Left" 
+                          Margin="78,45,0,0" 
+                          VerticalAlignment="Top" 
+                          Width="80">
+                    <ListBoxItem Content="8"/>
+                    <ListBoxItem Content="7"/>
+                    <ListBoxItem Content="6"/>
+                    <ListBoxItem Content="5"/>
+                </ComboBox>
+                <ComboBox x:Name="cmbParity"
+                          SelectedIndex="0"
+                          HorizontalAlignment="Left"
+                          Margin="78,82,0,0"
+                          VerticalAlignment="Top"
+                          Width="80">
+                    <ListBoxItem Content="None"/>
+                    <ListBoxItem Content="Odd"/>
+                    <ListBoxItem Content="Even"/>
+                </ComboBox>
+                <TextBlock HorizontalAlignment="Left" Margin="179,10,0,0" TextWrapping="Wrap" Text="波特率：" VerticalAlignment="Top"/>
+                <TextBlock HorizontalAlignment="Left" Margin="179,47,0,0" TextWrapping="Wrap" Text="停止位：" VerticalAlignment="Top"/>
+                <ComboBox x:Name="cmbStopBits" 
+                          SelectedIndex="0"
+                          HorizontalAlignment="Left"
+                          Margin="232,45,0,0"
+                          VerticalAlignment="Top"
+                          Width="80">
+                    <ListBoxItem Content="One"/>
+                    <ListBoxItem Content="Two"/>
+                    <ListBoxItem Content="OnePointFive"/>
+                    <ListBoxItem Content="None"/>
+                </ComboBox>
+                <ComboBox x:Name="cmbBaudRate"
+                          SelectedIndex="0"
+                          HorizontalAlignment="Left"
+                          Margin="232,10,0,0"
+                          VerticalAlignment="Top"
+                          Width="80">
+                    <ListBoxItem Content="9600"/>
+                    <ListBoxItem Content="19200"/>
+                    <ListBoxItem Content="38400"/>
+                    <ListBoxItem Content="57600"/>
+                    <ListBoxItem Content="115200"/>
+                </ComboBox>
+                <Button x:Name="btnOpenPort" Content="打开串口" HorizontalAlignment="Left" Margin="179,83,0,0" VerticalAlignment="Top" Width="133" Click="BtnOpenPort_Click"/>
+            </Grid>
+        </GroupBox>
+
+        <TextBlock  HorizontalAlignment="Left" Margin="15,193,0,0" TextWrapping="Wrap" Text="执行状态：" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtStatus" HorizontalAlignment="Left" Height="68" Margin="89,166,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="264"/>
+
+        <GroupBox x:Name="groupBox_Copy" Header="通讯测试" HorizontalAlignment="Left" Margin="374,10,0,0" VerticalAlignment="Top" Height="240" Width="419">
+            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <TextBlock HorizontalAlignment="Left" Margin="8,25,0,0" TextWrapping="Wrap" Text="发送数据输入框：" VerticalAlignment="Top"/>
+                <TextBlock HorizontalAlignment="Left" Margin="8,107,0,0" TextWrapping="Wrap" Text="接受数据输入框：" VerticalAlignment="Top"/>
+                <CheckBox x:Name="chkSendHex" Content="HEX发送" HorizontalAlignment="Left" Margin="109,26,0,0" VerticalAlignment="Top" Checked="ChkSendHex_Checked"/>
+                <CheckBox x:Name="chkReceiveHex" Content="HEX接受" HorizontalAlignment="Left" Margin="109,108,0,0" VerticalAlignment="Top" Checked="ChkReceiveHex_Checked" />
+                <TextBox x:Name="txtSend" HorizontalAlignment="Left" Height="28" Margin="8,59,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="388"/>
+                <TextBox x:Name="txtReceive" HorizontalAlignment="Left" Height="68" Margin="8,140,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="387"/>
+                <Button x:Name="btnSend" Content="发送" HorizontalAlignment="Left" Margin="336,25,0,0" VerticalAlignment="Top" Width="60" IsEnabled="False" Click="BtnSend_Click" />
+                <Button x:Name="btnReceive" Content="接受" HorizontalAlignment="Left" Margin="336,105,0,0" VerticalAlignment="Top" Width="60" Click="BtnReceive_Click" />
+                <RadioButton x:Name="rbResponse" Content="响应模式" HorizontalAlignment="Left" Margin="182,108,0,0" VerticalAlignment="Top" Checked="RbResponse_Checked"/>
+                <RadioButton x:Name="rbAck" Content="应答模式" HorizontalAlignment="Left" Margin="253,108,0,0" VerticalAlignment="Top" Checked="RbAck_Checked" />
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>
