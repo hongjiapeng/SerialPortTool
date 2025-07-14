@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFrameworks>net48;net8.0-windows</TargetFrameworks>
+    <TargetFrameworks>net48;net9.0-windows</TargetFrameworks>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>false</UseWindowsForms>
     <AssemblyName>串口调试助手</AssemblyName>
