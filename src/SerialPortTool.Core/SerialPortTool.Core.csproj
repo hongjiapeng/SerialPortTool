@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net48;net6.0;net8.0</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>SerialPortTool.Core</PackageId>
+    <Title>Serial Port Tool Core Library</Title>
+    <Authors>hongjiapeng</Authors>
+    <Company>hongjiapeng</Company>
+    <Product>SerialPortTool</Product>
+    <Description>A comprehensive serial port communication library with modern async/await patterns, event-driven architecture, and robust error handling.</Description>
+    <Copyright>Copyright © 2025 hongjiapeng</Copyright>
+    <PackageLicense>MIT</PackageLicense>
+    <PackageProjectUrl>https://github.com/hongjiapeng/SerialPortTool</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/hongjiapeng/SerialPortTool</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>serial;port;communication;rs232;uart;embedded;iot</PackageTags>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <FileVersion>2.0.0.0</FileVersion>
+    <Version>2.0.0</Version>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\SerialPortTool.Core.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\SerialPortTool.Core.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.IO.Ports" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>
