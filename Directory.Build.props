@@ -1,0 +1,32 @@
+<Project>
+  
+  <PropertyGroup>
+    <!-- 通用属性 -->
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    
+    <!-- 程序集信息 -->
+    <Product>串口调试助手</Product>
+    <Company>hongjiapeng</Company>
+    <Authors>hongjiapeng</Authors>
+    <Copyright>Copyright © 2025 hongjiapeng</Copyright>
+    
+    <!-- 版本信息 -->
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+  </PropertyGroup>
+
+  <!-- 条件编译符号 -->
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net48'">
+    <DefineConstants>$(DefineConstants);NETFRAMEWORK</DefineConstants>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(TargetFramework)' != 'net48'">
+    <DefineConstants>$(DefineConstants);NETCORE</DefineConstants>
+  </PropertyGroup>
+
+</Project>
